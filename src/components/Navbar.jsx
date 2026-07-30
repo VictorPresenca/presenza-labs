@@ -4,7 +4,7 @@ export default function Navbar(){
     return (
         <header className="absolute w-full z-50 bg-transparent">
             <div className="flex justify-between items-center max-w-7xl mx-auto px-6 py-8 text-slate-800">
-                <div className="font-bold text-lg tracking-wide">
+                <div className="font-bold text-lg tracking-wide text-slate-800">
                     <p>Presenza Labs</p>
                 </div>
                 <nav className="flex gap-10">
