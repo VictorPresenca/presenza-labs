@@ -1,8 +1,14 @@
+import { motion } from "framer-motion";
 import heroImage from "../assets/hero.webp";
 
 export default function Hero() {
   return (
-    <div>
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.5 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
       <div className="bg-[#fdf6db] flex flex-col justify-center items-center px-50">
           <div className="font-elms text-xl tracking-tight flex-1 flex justify-center items-center text-slate-700 pt-50 pb-2 gap-2">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6">
@@ -18,6 +24,6 @@ export default function Hero() {
           </div>
       </div>
       <div className="w-full h-24 bg-gradient-to-b from-[#fdf6db] to-white pointer-events-none" />
-    </div>
+    </motion.div>
   );
 }
