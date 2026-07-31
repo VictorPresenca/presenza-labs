@@ -2,4 +2,11 @@
 
 @theme {
     --font-elms: "Elms Sans", sans-serif;
+    --animate-infinite-scroll: infinite-scroll 25s linear infinite;
+}
+
+@keyframes infinite-scroll {
+    to {
+        transform: translateX(-50%);
+    }
 }
