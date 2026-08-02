@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import projetarImagem from "../assets/projetar.webp";
 
 export default function Sobre() {
     return (
@@ -8,7 +7,7 @@ export default function Sobre() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="w-full h-screen flex justify-center items-center px-50 flex-col"
+            className="w-full h-[80vh] flex justify-center items-center px-50 flex-col"
         >
             <h2 className="flex justify-center font-elms tracking-tight font-bold text-4xl text-slate-800 text-shadow-lg">Como o desenvolvimento funciona</h2>
             <div className="justify-center grid grid-cols-3 gap-2 pt-8">
@@ -59,7 +58,7 @@ export default function Sobre() {
                     </div>
                 </div>
             </div>
-            <p className="font-elms my-8 text-slate-500">Projete, personalize e passe a ideia que quer compartilhar no mundo digital!</p>
+            <p className="font-elms my-8 text-slate-500">Personalize e passe a ideia que quer compartilhar no mundo digital!</p>
         </motion.div>
     )
 }
