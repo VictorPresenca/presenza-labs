@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import heroImage from "../assets/vilkasss-abstract-10055158.jpg";
+import heroImage from "../assets/hero.webp";
 
 export default function Hero() {
   return (
@@ -34,7 +34,7 @@ export default function Hero() {
           </div>
 
           {/* Título Principal */}
-          <h1 className="font-elms text-base/8 tracking-tight text-center text-4xl sm:text-6xl md:text-7xl xl:text-8xl font-bold text-slate-900 text-shadow-lg">
+          <h1 className="font-elms tracking-tight text-center text-4xl sm:text-6xl md:text-7xl xl:text-8xl font-bold text-slate-900 text-shadow-lg">
             Criação de sites profissionais personalizados
           </h1>
         </motion.div>
