@@ -1,4 +1,5 @@
 import { ArrowUpRight, Clock3, MessageCircle } from "lucide-react";
+import { FaInstagram } from "react-icons/fa";
 import { Button } from "../ui/Button";
 
 const WHATSAPP_MESSAGE = "Olá! Vi o site da Presenza Labs e quero solicitar um orçamento.";
@@ -47,7 +48,7 @@ export default function Contact() {
               rel="noreferrer"
               className="flex items-center gap-2 transition-colors hover:text-primary"
             >
-              {/* <Instagram className="size-4 shrink-0 text-primary" /> */}
+              <FaInstagram className="size-4 shrink-0 text-primary" />
               @presenzalabs
             </a>
             <span className="sm:text-right font-medium">presenzalabs.com.br</span>
