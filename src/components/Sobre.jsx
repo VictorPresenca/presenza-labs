@@ -1,97 +1,122 @@
-import { motion } from "framer-motion";
+import { Check, Code2, Globe, Layout, Rocket } from "lucide-react";
 
-import step1Img from "../assets/projetar.webp"; 
-import step2Img from "../assets/programar.webp"; 
-import step3Img from "../assets/publicar.webp"; 
+// Subcomponente de Título para manter a consistência visual
+function SectionHeading({ eyebrow, title, text }) {
+  return (
+    <div>
+      <p className="text-sm font-bold uppercase tracking-wide text-primary">
+        {eyebrow}
+      </p>
+      <h2 className="mt-3 text-3xl font-extrabold leading-tight text-foreground sm:text-4xl lg:text-5xl">
+        {title}
+      </h2>
+      {text && (
+        <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
+          {text}
+        </p>
+      )}
+    </div>
+  );
+}
 
-const passos = [
+const siteTypes = [
   {
-    numero: "01",
-    titulo: "Projetar",
-    descricao: "Analisar todas as informações e necessidades sobre o projeto que você quer desenvolver, mapeando a estrutura ideal.",
-    imagem: step1Img,
-    alt: "Etapa de Projeto"
+    icon: Globe,
+    title: "Sites Institucionais",
+    text: "Páginas profissionais completas para transmitir autoridade, apresentar serviços e passar confiança para clientes.",
   },
   {
-    numero: "02",
-    titulo: "Programar",
-    descricao: "Colocar a análise em prática escrevendo código limpo, moderno e otimizado, mantendo total alinhamento com suas expectativas.",
-    imagem: step2Img,
-    alt: "Etapa de Programação"
+    icon: Rocket,
+    title: "Landing Pages de Alta Conversão",
+    text: "Páginas focadas em um único objetivo: transformar visitantes em leads e vendas diretas no WhatsApp.",
   },
   {
-    numero: "03",
-    titulo: "Publicar",
-    descricao: "Subir seu site com domínio personalizado, certificado de segurança e hospedagem na internet para que seus clientes possam acessá-lo.",
-    imagem: step3Img,
-    alt: "Etapa de Publicação"
-  }
+    icon: Layout,
+    title: "Portfólios Comerciais",
+    text: "Apresente seus trabalhos, projetos ou cases com design moderno e navegação fluida.",
+  },
+  {
+    icon: Code2,
+    title: "Aplicações Sob Medida",
+    text: "Sistemas web e interfaces personalizadas construídas especificamente para a regra do seu negócio.",
+  },
 ];
 
-export default function Sobre() {
+export default function About() {
   return (
-    <section id="sobre" className="w-full relative bg-[#fefdea] py-24">
-      {/* Padrão de Grade em CSS com Esfumaçado */}
-      <div 
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, rgba(0, 0, 0, 0.1) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 1px, transparent 1px)
-          `,
-          backgroundSize: '40px 40px',
-          WebkitMaskImage: 'radial-gradient(circle at center, black 40%, transparent 85%)',
-          maskImage: 'radial-gradient(circle at center, black 40%, transparent 85%)'
-        }}
-      />
-
-      <div className="relative z-10 max-w-6xl mx-auto px-6">
-        
-        <motion.h2 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="font-elms tracking-tight font-bold text-4xl sm:text-5xl text-slate-800 text-shadow-lg text-center mb-20"
-        >
-          Como o desenvolvimento funciona?
-        </motion.h2>
-
-        {/* Lista de Passos na Vertical */}
-        <div className="flex flex-col gap-24">
-          {passos.map((passo, idx) => (
-            <motion.div
-              key={passo.numero}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center"
-            >
-              {/* Lado Esquerdo: Texto */}
-              <div className="md:col-span-5 flex flex-col justify-center">
-                <h3 className="font-elms font-bold text-4xl sm:text-5xl text-slate-800 pb-4">
-                  {passo.titulo}
-                </h3>
-                <p className="font-elms text-slate-700 text-lg leading-relaxed">
-                  {passo.descricao}
-                </p>
-              </div>
-
-              {/* Lado Direito: Imagem sem fundo branco por trás */}
-              <div className="md:col-span-7 flex justify-center md:justify-end">
-                <div className="w-full max-w-[520px] flex justify-center items-center">
-                  <img
-                    src={passo.imagem}
-                    alt={passo.alt}
-                    className="w-full h-auto max-h-[360px] object-contain drop-shadow-md"
-                  />
+    <section id="sobre" className="scroll-mt-20 border-y border-border bg-surface py-24 lg:py-32">
+      <div className="mx-auto max-w-7xl px-5 lg:px-8">
+        {/* Bloco Superior: História e Pilares */}
+        <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-24">
+          <SectionHeading
+            eyebrow="Sobre o laboratório"
+            title="Tecnologia com método. Parceria com transparência."
+            text="A Presenza Labs nasceu em 2026, fundada por Victor Presença, técnico em Desenvolvimento de Sistemas e estudante de Sistemas de Informação."
+          />
+          <div className="space-y-6 text-base leading-8 text-muted-foreground sm:text-lg">
+            <p>
+              Transformamos estudo, programação e força de vontade em projetos empresariais de alta performance, com design atual e desenvolvimento técnico feito sob medida.
+            </p>
+            <p>
+              Trabalhamos com honestidade, comunicação clara e foco total na satisfação de cada cliente — inclusive de quem não entende de tecnologia.
+            </p>
+            <div className="grid gap-3 pt-3 sm:grid-cols-2">
+              {[
+                "Programação sob medida",
+                "Alta performance",
+                "Design responsivo",
+                "Comunicação transparente",
+              ].map((item) => (
+                <div
+                  key={item}
+                  className="flex items-center gap-3 border-l-2 border-primary bg-background/60 px-4 py-3 text-sm font-bold text-foreground"
+                >
+                  <Check className="size-4 shrink-0 text-primary" />
+                  {item}
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              ))}
+            </div>
+          </div>
         </div>
 
+        {/* Bloco Inferior: O que desenvolvemos */}
+        <div className="mt-20 border-t border-border pt-16">
+          <div className="mb-9 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+            <div>
+              <p className="text-sm font-bold text-primary">SOLUÇÕES DIGITAIS</p>
+              <h3 className="mt-2 text-2xl font-extrabold sm:text-3xl text-foreground">
+                O que desenvolvemos
+              </h3>
+            </div>
+            <p className="max-w-md text-sm leading-6 text-muted-foreground">
+              Da primeira página à operação completa, cada solução é planejada para o objetivo do seu negócio.
+            </p>
+          </div>
+
+          <div className="grid gap-px overflow-hidden rounded-lg border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
+            {siteTypes.map(({ icon: Icon, title, text }) => (
+              <article key={title} className="bg-background p-6">
+                <Icon className="size-7 text-primary" strokeWidth={1.8} />
+                <h4 className="mt-8 text-lg font-extrabold text-foreground">{title}</h4>
+                <p className="mt-3 text-sm leading-6 text-muted-foreground">{text}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <span className="mr-2 text-xs font-bold uppercase text-muted-foreground">
+              Tecnologia atual
+            </span>
+            {["React", "Tailwind CSS V4", "Vite", "IA aplicada ao processo"].map((tech) => (
+              <span
+                key={tech}
+                className="rounded-full border border-border bg-background px-3 py-1.5 text-xs font-bold text-foreground"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

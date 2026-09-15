@@ -1,75 +1,73 @@
-import { useEffect, useRef } from "react";
-import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
-
-// Componente para animar os números
-function AnimatedNumber({ value, suffix = "" }) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
-  
-  const motionValue = useMotionValue(0);
-  const springValue = useSpring(motionValue, {
-    damping: 30,
-    stiffness: 100,
-  });
-
-  useEffect(() => {
-    if (isInView) {
-      motionValue.set(value);
-    }
-  }, [isInView, value, motionValue]);
-
-  useEffect(() => {
-    return springValue.on("change", (latest) => {
-      if (ref.current) {
-        ref.current.textContent = Math.floor(latest) + suffix;
-      }
-    });
-  }, [springValue, suffix]);
-
-  return <span ref={ref}>0{suffix}</span>;
+// Subcomponente de Título reutilizável
+function SectionHeading({ eyebrow, title, text }) {
+  return (
+    <div>
+      <p className="text-sm font-bold uppercase tracking-wide text-primary">
+        {eyebrow}
+      </p>
+      <h2 className="mt-3 text-3xl font-extrabold leading-tight text-foreground sm:text-4xl lg:text-5xl">
+        {title}
+      </h2>
+      {text && (
+        <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
+          {text}
+        </p>
+      )}
+    </div>
+  );
 }
 
-export default function Projetos() {
-  const stats = [
-    { id: 1, number: 5, prefix: "+", suffix: "", label: "Projetos entregues" },
-    { id: 2, number: 2, prefix: "+", suffix: " anos", label: "de experiência" },
-    { id: 3, number: 100, prefix: "", suffix: "%", label: "Satisfação dos clientes" },
-  ];
+const stats = [
+  {
+    value: "+8",
+    label: "projetos concluídos",
+    text: "Experiências digitais entregues para empresas que buscavam crescer.",
+  },
+  {
+    value: "100%",
+    label: "de satisfação",
+    text: "Compromisso total com qualidade, transparência e resultado.",
+  },
+  {
+    value: "7–14",
+    label: "dias de prazo médio",
+    text: "Agilidade responsável, de acordo com a complexidade do projeto.",
+  },
+];
 
+export default function Projects() {
   return (
-    <div className="bg-[#fefdea]">
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className="w-full"
-      >
-        <div id="projetos" className="py-16 sm:py-24 max-w-6xl mx-auto px-6">
-          {/* Título */}
-          <h2 className="font-elms text-4xl sm:text-5xl xl:text-6xl font-bold text-shadow-lg pb-12 sm:pb-16 text-slate-800 text-center md:text-left select-none">
-            Impacto em Números
-          </h2>
+    <section id="projetos" className="scroll-mt-20 py-24 lg:py-32">
+      <div className="mx-auto max-w-7xl px-5 lg:px-8">
+        <SectionHeading
+          eyebrow="Resultados em números"
+          title="Projetos tratados como ciência exata."
+          text="Prazos claros, acompanhamento próximo e uma entrega construída para durar."
+        />
 
-          {/* Grid de Métricas */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            {stats.map((stat) => (
-              <div 
-                key={stat.id} 
-                className="flex flex-col items-center justify-center p-8 bg-white/50 backdrop-blur-sm rounded-2xl shadow-sm border border-slate-200/60"
-              >
-                <span className="font-elms text-5xl sm:text-6xl font-extrabold text-slate-800 mb-2">
-                  {stat.prefix}
-                  <AnimatedNumber value={stat.number} suffix={stat.suffix} />
-                </span>
-                <p className="text-slate-600 font-medium text-lg">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
-          </div>
+        <div className="mt-12 grid gap-5 md:grid-cols-3">
+          {stats.map((stat, index) => (
+            <article
+              key={stat.label}
+              className="relative overflow-hidden rounded-lg border border-border bg-card p-7 shadow-lab sm:p-9"
+            >
+              <span className="absolute right-5 top-4 text-xs font-extrabold text-primary">
+                0{index + 1}
+              </span>
+              <p className="text-5xl font-extrabold text-foreground sm:text-6xl">
+                {stat.value}
+              </p>
+              <h3 className="mt-3 text-lg font-extrabold text-foreground">
+                {stat.label}
+              </h3>
+              <p className="mt-4 text-sm leading-6 text-muted-foreground">
+                {stat.text}
+              </p>
+              <div className="mt-7 h-1 w-12 rounded-full bg-primary" />
+            </article>
+          ))}
         </div>
-      </motion.div>
-    </div>
+      </div>
+    </section>
   );
 }

@@ -1,121 +1,161 @@
+import { FaWhatsapp, FaInstagram, FaLinkedin, FaGithub } from "react-icons/fa"
+import { Button } from "../ui/Button";
+
+const WHATSAPP_MESSAGE = "Olá! Vi o site da Presenza Labs e quero solicitar um orçamento.";
+const WHATSAPP_URL = `https://wa.me/5511966105279?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+
+const urlLinkedin = "https://www.linkedin.com/in/victor-presen%C3%A7a-a111722b8/";
+const urlGithub = "https://github.com/VictorPresenca";
+const urlInstagram = "https://instagram.com/presenzalabs";
+
+function Logo() {
+  return (
+    <a href="#top" className="text-lg font-extrabold text-foreground">
+      Presenza <span className="text-primary">Labs</span>
+    </a>
+  );
+}
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
-  const urlLinkedin = "https://www.linkedin.com/in/victor-presen%C3%A7a-a111722b8/";
-  const urlGithub = "https://github.com/VictorPresenca";
-
   return (
-    <footer className="w-full bg-[#fefdea] text-slate-800 pt-16 pb-12 px-6 border-t border-slate-200/60 font-elms">
-      <div className="max-w-6xl mx-auto flex flex-col justify-between min-h-[220px]">
-        
-        {/* Parte Superior: Logo + Links */}
-        <div className="flex flex-col md:flex-row justify-between items-start gap-10">
+    <>
+      <footer className="border-t border-border bg-background pt-16 pb-12">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8">
           
-          {/* Logo / Marca */}
-          <div className="flex items-center">
-            <a href="#" className="text-2xl font-bold tracking-tighter text-slate-900">
-              <span className="text-3xl font-black">Presenza Labs</span>
-            </a>
+          {/* Topo: Logo + Colunas de Links */}
+          <div className="flex flex-col gap-10 md:flex-row md:justify-between">
+            
+            {/* Bloco da Marca */}
+            <div className="max-w-xs space-y-3">
+              <Logo />
+              <p className="text-xs leading-relaxed text-muted-foreground">
+                Ciência aplicada à presença digital. Desenvolvimento sob medida para empresas que buscam alta performance.
+              </p>
+            </div>
+
+            {/* Navegação em Colunas */}
+            <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-12 text-sm">
+              
+              {/* Coluna 1 */}
+              <div className="flex flex-col gap-3">
+                <span className="text-xs font-extrabold uppercase tracking-wider text-primary">
+                  Navegação
+                </span>
+                <a href="#sobre" className="text-muted-foreground transition-colors hover:text-foreground">
+                  Sobre
+                </a>
+                <a href="#servicos" className="text-muted-foreground transition-colors hover:text-foreground">
+                  Serviços
+                </a>
+                <a href="#projetos" className="text-muted-foreground transition-colors hover:text-foreground">
+                  Projetos
+                </a>
+                <a href="#faq" className="text-muted-foreground transition-colors hover:text-foreground">
+                  FAQ
+                </a>
+              </div>
+
+              {/* Coluna 2 */}
+              <div className="flex flex-col gap-3">
+                <span className="text-xs font-extrabold uppercase tracking-wider text-primary">
+                  Soluções
+                </span>
+                <span className="text-muted-foreground">Landing Pages</span>
+                <span className="text-muted-foreground">Sites Institucionais</span>
+                <span className="text-muted-foreground">Portfólios</span>
+                <span className="text-muted-foreground">Sistemas Web</span>
+              </div>
+
+              {/* Coluna 3 */}
+              <div className="flex flex-col gap-3">
+                <span className="text-xs font-extrabold uppercase tracking-wider text-primary">
+                  Conectar
+                </span>
+                <a
+                  href={urlInstagram}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  Instagram
+                </a>
+                <a
+                  href={urlLinkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  LinkedIn
+                </a>
+                <a
+                  href={urlGithub}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  GitHub
+                </a>
+              </div>
+
+            </div>
           </div>
 
-          {/* Colunas de Navegação */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 sm:gap-12 text-sm">
-            
-            {/* Coluna 1 */}
-            <div className="flex flex-col gap-2.5">
-              <span className="font-semibold text-[#f59e0b] tracking-wide">
-                Navegação
-              </span>
-              <a href="#sobre" className="text-slate-600 hover:text-slate-900 transition">
-                Sobre
-              </a>
-              <a href="#projetos" className="text-slate-600 hover:text-slate-900 transition">
-                Projetos
-              </a>
-              <a href="#contato" className="text-slate-600 hover:text-slate-900 transition">
-                Contato
-              </a>
-            </div>
+          {/* Divisor */}
+          <div className="mt-12 border-t border-border pt-8 flex flex-col items-center justify-between gap-4 sm:flex-row text-xs text-muted-foreground">
+            <p>© {currentYear} Presenza Labs. Todos os direitos reservados.</p>
 
-            {/* Coluna 2 */}
-            <div className="flex flex-col gap-2.5">
-              <span className="font-semibold text-[#f59e0b] tracking-wide">
-                Especialidades
-              </span>
-              <span className="text-slate-600">Frontend Dev</span>
-              <span className="text-slate-600">UI/UX Design</span>
-              <span className="text-slate-600">Performance & SEO</span>
-            </div>
-
-            {/* Coluna 3 */}
-            <div className="flex flex-col gap-2.5">
-              <span className="font-semibold text-[#f59e0b] tracking-wide">
-                Conectar
-              </span>
+            {/* Ícones Sociais */}
+            <div className="flex items-center gap-4 text-muted-foreground">
               <a
-                href={urlGithub}
+                href={urlInstagram}
                 target="_blank"
-                rel="noopener noreferrer"
-                className="text-slate-600 hover:text-slate-900 transition"
+                rel="noreferrer"
+                aria-label="Instagram"
+                className="transition-colors hover:text-primary"
               >
-                GitHub
+                <FaInstagram className="size-4" />
               </a>
               <a
                 href={urlLinkedin}
                 target="_blank"
-                rel="noopener noreferrer"
-                className="text-slate-600 hover:text-slate-900 transition"
+                rel="noreferrer"
+                aria-label="LinkedIn"
+                className="transition-colors hover:text-primary"
               >
-                LinkedIn
+                <FaLinkedin className="size-4" />
               </a>
               <a
-                href="https://wa.me/5511969264064"
+                href={urlGithub}
                 target="_blank"
-                rel="noopener noreferrer"
-                className="text-slate-600 hover:text-slate-900 transition"
+                rel="noreferrer"
+                aria-label="GitHub"
+                className="transition-colors hover:text-primary"
               >
-                WhatsApp
+                <FaGithub className="size-4" />
               </a>
             </div>
-
           </div>
+
         </div>
+      </footer>
 
-        {/* Parte Inferior: Copyright + Redes Sociais */}
-        <div className="flex flex-col sm:flex-row justify-between items-center pt-12 mt-8 text-xs text-slate-500 gap-4">
-          <p>© {currentYear} Presenza Labs. Todos os direitos reservados.</p>
-
-          {/* Ícones Sociais no Canto Direito */}
-          <div className="flex items-center gap-5 text-slate-800">
-            {/* GitHub */}
-            <a 
-              href={urlGithub} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              aria-label="GitHub"
-              className="hover:text-slate-600 transition"
-            >
-              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-              </svg>
-            </a>
-
-            {/* LinkedIn */}
-            <a 
-              href={urlLinkedin} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              className="hover:text-slate-600 transition"
-            >
-              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.262-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </footer>
+      {/* Botão Flutuante do WhatsApp (Mobile) */}
+      <Button
+        asChild
+        size="icon"
+        className="fixed bottom-5 right-5 z-40 shadow-lg lg:hidden"
+      >
+        <a
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Falar com a Presenza Labs no WhatsApp"
+        >
+          <FaWhatsapp className="size-6" />
+        </a>
+      </Button>
+    </>
   );
 }
