@@ -5,14 +5,23 @@ const WHATSAPP_MESSAGE = "Olá! Vi o site da Presenza Labs e quero solicitar um 
 const WHATSAPP_URL = `https://wa.me/5511966105279?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 
 const urlLinkedin = "https://www.linkedin.com/in/victor-presen%C3%A7a-a111722b8/";
-const urlGithub = "https://github.com/VictorPresenca";
+const urlGithub = "https://github.com/PresenzaLabs";
 const urlInstagram = "https://instagram.com/presenzalabs";
 
 function Logo() {
   return (
-    <a href="#top" className="text-lg font-extrabold text-foreground">
-      Presenza <span className="text-primary">Labs</span>
-    </a>
+    <div className="flex gap-2 items-center">
+      <img 
+        src="/src/assets/presenzalabs-logo-transparente.svg"
+        alt="icone Presenza Labs"
+        width="24"
+        height="24"
+        className="size-15"
+      />
+      <a href="#top" className="text-2xl font-extrabold text-foreground">
+        Presenza Labs
+      </a>
+    </div>
   );
 }
 
@@ -31,7 +40,7 @@ export default function Footer() {
             <div className="max-w-xs space-y-3">
               <Logo />
               <p className="text-xs leading-relaxed text-muted-foreground">
-                Ciência aplicada à presença digital. Desenvolvimento sob medida para empresas que buscam alta performance.
+                Tecnologia aplicada à presença digital. Desenvolvimento sob medida para empresas que buscam alta performance.
               </p>
             </div>
 
@@ -64,8 +73,8 @@ export default function Footer() {
                 </span>
                 <span className="text-muted-foreground">Landing Pages</span>
                 <span className="text-muted-foreground">Sites Institucionais</span>
-                <span className="text-muted-foreground">Portfólios</span>
-                <span className="text-muted-foreground">Sistemas Web</span>
+                <span className="text-muted-foreground">Catálogo de produtos</span>
+                <span className="text-muted-foreground">Blogs</span>
               </div>
 
               {/* Coluna 3 */}

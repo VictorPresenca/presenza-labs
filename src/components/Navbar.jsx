@@ -17,18 +17,18 @@ const navItems = [
 function Logo() {
   return (
     <a href="#top" className="flex items-center gap-2 text-lg font-extrabold text-foreground">
-      {/* <img
-        src="/favicon.svg"
+      <img
+        src="/src/assets/presenzalabs-logo-transparente.svg"
         alt="Presenza Labs"
-        width="24"
-        height="24"
-        className="size-6"
+        width="50"
+        height="50"
+        className="size-10"
         onError={(e) => {
           e.currentTarget.style.display = "none";
         }}
-      /> */}
+      />
       <span>
-        Presenza <span className="text-primary">Labs</span>
+        Presenza Labs
       </span>
     </a>
   );
