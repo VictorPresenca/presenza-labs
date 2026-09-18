@@ -1,0 +1,6 @@
+# Permitir que todos os robôs de busca indexem todo o site
+User-agent: *
+Allow: /
+
+# Indique o caminho do seu Sitemap caso crie um no futuro (opcional)
+# Sitemap: https://seusite.com/sitemap.xml
