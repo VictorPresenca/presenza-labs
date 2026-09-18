@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Menu, MessageCircle, X } from "lucide-react";
 import { Button } from "../ui/Button";
+import LogoPng from "../assets/logo-presenzalabs.webp"
 
 const WHATSAPP_MESSAGE = "Olá! Vi o site da Presenza Labs e quero solicitar um orçamento.";
 const WHATSAPP_URL = `https://wa.me/5511966105279?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
@@ -18,7 +19,7 @@ function Logo() {
   return (
     <a href="#top" className="flex items-center gap-2 text-lg font-extrabold text-foreground">
       <img
-        src="/src/assets/presenzalabs-logo-transparente.svg"
+        src={LogoPng}
         alt="Presenza Labs"
         width="50"
         height="50"

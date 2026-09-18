@@ -1,5 +1,6 @@
 import { FaWhatsapp, FaInstagram, FaLinkedin, FaGithub } from "react-icons/fa"
 import { Button } from "../ui/Button";
+import LogoPng from "../assets/logo-presenzalabs.webp"
 
 const WHATSAPP_MESSAGE = "Olá! Vi o site da Presenza Labs e quero solicitar um orçamento.";
 const WHATSAPP_URL = `https://wa.me/5511966105279?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
@@ -10,18 +11,18 @@ const urlInstagram = "https://instagram.com/presenzalabs";
 
 function Logo() {
   return (
-    <div className="flex gap-2 items-center">
+    <a href="#top" className="flex gap-2 items-center">
       <img 
-        src="/src/assets/presenzalabs-logo-transparente.svg"
+        src={LogoPng}
         alt="icone Presenza Labs"
         width="24"
         height="24"
         className="size-15"
       />
-      <a href="#top" className="text-2xl font-extrabold text-foreground">
+      <p className="text-2xl font-extrabold text-foreground">
         Presenza Labs
-      </a>
-    </div>
+      </p>
+    </a>
   );
 }
 
